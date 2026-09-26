@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portafolio de datos — preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #12182B;
+    --bg-raised: #1A2238;
+    --card: #1D2740;
+    --border: #3B4A6B;
+    --border-soft: #2A3550;
+    --text: #F3EFE6;
+    --text-dim: #A9AEC4;
+    --accent: #E8A94C;
+    --accent-dim: #B9853A;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.55;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  header.hero {
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-size: clamp(34px, 5.5vw, 54px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    max-width: 14ch;
+  }
+  .lead {
+    font-size: 18px;
+    color: var(--text-dim);
+    max-width: 60ch;
+    margin: 0 0 32px;
+  }
+  .stack-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .stack-line span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text);
+    background: var(--bg-raised);
+    border: 1px solid var(--border-soft);
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+
+  section { padding: 64px 0; border-bottom: 1px solid var(--border-soft); }
+  section:last-of-type { border-bottom: none; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  h2 { font-size: 24px; font-weight: 500; margin: 0; }
+  .section-note { font-size: 13px; color: var(--text-dim); margin: 0; }
+
+  /* GitHub repos */
+  #repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--border-soft);
+    border: 1px solid var(--border-soft);
+  }
+  .repo-card {
+    background: var(--card);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .repo-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .repo-desc {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    flex-grow: 1;
+  }
+  .repo-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--accent-dim);
+  }
+  .repo-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-dim);
+  }
+
+  /* Power BI */
+  .bi-frame {
+    border: 1px solid var(--border-soft);
+    background: var(--bg-raised);
+    aspect-ratio: 16/8.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 24px;
+  }
+  .bi-frame .mono { color: var(--text-dim); font-size: 12.5px; }
+  .bi-frame p { margin: 0; color: var(--text-dim); font-size: 14px; max-width: 40ch; }
+
+  /* Casos de estudio */
+  .case {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border-soft);
+  }
+  .case:first-of-type { border-top: none; }
+  .case-tool {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    padding-top: 3px;
+  }
+  .case h3 { margin: 0 0 8px; font-size: 17px; font-weight: 500; }
+  .case p { margin: 0; color: var(--text-dim); font-size: 14.5px; }
+
+  footer {
+    padding: 48px 0 80px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 560px) {
+    .case { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="tag">portafolio de datos — preview</p>
+    <h1>Lenny Garcia</h1>
+    <p class="lead">Analista de datos. Convierto datos crudos en reportes y modelos que otros pueden usar para decidir — con Power BI, Python y SQL Server.</p>
+    <div class="stack-line">
+      <span>Power BI</span>
+      <span>Python</span>
+      <span>SQL Server</span>
+      <span>DAX</span>
+      <span>Pandas</span>
+    </div>
+  </header>
+
+  <section id="proyectos">
+    <div class="section-head">
+      <h2>Proyectos en GitHub</h2>
+      <p class="section-note mono">github.com/tuusuario</p>
+    </div>
+    <div id="repo-grid">
+      <div class="repo-card">
+        <div class="repo-name">ventas-dashboard-powerbi</div>
+        <div class="repo-desc">Dashboard de ventas regionales con medidas DAX y segmentación por producto.</div>
+        <div class="repo-meta">DAX</div>
+        <div class="repo-status">actualizado hace 3 días</div>
+      </div>
+      <div class="repo-card">
+        <div class="repo-name">etl-pipeline-sqlserver</div>
+        <div class="repo-desc">Proceso ETL en T-SQL para consolidar datos de ventas de tres sucursales.</div>
+        <div class="repo-meta">T-SQL</div>
+        <div class="repo-status">actualizado hace 2 semanas</div>
+      </div>
+      <div class="repo-card">
+        <div class="repo-name">analisis-churn-python</div>
+        <div class="repo-desc">Análisis exploratorio y modelo de predicción de abandono de clientes.</div>
+        <div class="repo-meta">Python</div>
+        <div class="repo-status">actualizado hace 1 mes</div>
+      </div>
+    </div>
+    <p class="section-note mono" style="margin-top:16px;">* Esta cuadrícula se llenará sola con tus repos reales usando la API de GitHub.</p>
+  </section>
+
+  <section id="reportes">
+    <div class="section-head">
+      <h2>Reportes interactivos</h2>
+      <p class="section-note mono">Power BI</p>
+    </div>
+    <div class="bi-frame">
+      <span class="mono">&lt;iframe&gt; — reporte publicado en la web</span>
+      <p>Aquí va tu reporte de Power BI real, embebido e interactivo — el visitante podrá filtrar y explorar los datos directamente.</p>
+    </div>
+  </section>
+
+  <section id="casos">
+    <div class="section-head">
+      <h2>Casos de estudio</h2>
+      <p class="section-note mono">Python · SQL Server</p>
+    </div>
+
+    <div class="case">
+      <div class="case-tool">Python</div>
+      <div>
+        <h3>Predicción de abandono de clientes</h3>
+        <p>Problema: la empresa no sabía qué clientes estaban en riesgo de irse. Enfoque: modelo de clasificación con scikit-learn sobre historial de compras. Resultado: identificación del 78% de los clientes que efectivamente cancelaron, dos meses antes.</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-tool">SQL Server</div>
+      <div>
+        <h3>Consolidación de ventas multi-sucursal</h3>
+        <p>Problema: cada sucursal reportaba en un formato distinto. Enfoque: procedimientos almacenados y vistas para unificar y limpiar los datos. Resultado: un solo reporte confiable en vez de tres hojas de cálculo desalineadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="mono">tu@correo.com · linkedin.com/in/tuusuario · github.com/tuusuario</p>
+  </footer>
+</div>
+
+</body>
+</html>
